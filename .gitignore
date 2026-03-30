@@ -1,0 +1,15 @@
+target/
+*.log
+*.class
+*.jar
+node_modules/
+.idea/
+.vscode/
+*.iml
+.DS_Store
+build_errors_v*.txt
+build_final.txt
+build_with_ui.txt
+mvnw
+mvnw.cmd
+.mvn/

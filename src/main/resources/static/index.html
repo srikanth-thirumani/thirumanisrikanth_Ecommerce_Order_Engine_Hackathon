@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Commerce Order Engine | Dashboard</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="logo">
+      <i class="fas fa-shopping-cart"></i>
+      ECOM ENGINE <span style="font-weight: 300; font-size: 0.8rem; margin-left: 5px;">v1.0</span>
+    </div>
+    
+    <nav>
+      <a href="#" class="nav-item active" data-view="dashboard">
+        <i class="fas fa-th-large"></i> Home
+      </a>
+      <a href="#" class="nav-item" data-view="products">
+        <i class="fas fa-box"></i> Products
+      </a>
+      <a href="#" class="nav-item" data-view="orders">
+        <i class="fas fa-receipt"></i> Orders
+      </a>
+      <a href="#" class="nav-item" data-view="audit">
+        <i class="fas fa-history"></i> Audit Logs
+      </a>
+    </nav>
+    
+    <div style="margin-top: auto; padding-top: 2rem; border-top: 1px solid var(--glass-border);">
+      <p style="color: var(--text-secondary); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem;">Failure Simulation</p>
+      <button class="btn btn-primary" style="width: 100%; border-radius: 10px; padding: 0.5rem;" onclick="toggleFailureMode()">
+        <i class="fas fa-bug"></i> Normal Mode
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <header>
+      <div class="header-titles">
+        <h1 id="view-title">Dashboard</h1>
+        <p style="color: var(--text-secondary); margin-top: 5px;">Welcome back, viewing system real-time stats.</p>
+      </div>
+      
+      <div class="user-profile">
+        <div style="background-color: var(--accent-primary); width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">U1</div>
+        <div style="text-align: left;">
+          <p style="font-size: 0.8rem; font-weight: bold;">USER_1</p>
+          <p style="font-size: 0.6rem; color: var(--text-secondary);">Premium Member</p>
+        </div>
+        <i class="fas fa-chevron-down" style="font-size: 0.7rem; color: var(--text-secondary);"></i>
+      </div>
+    </header>
+
+    <!-- Dashboard View -->
+    <section id="dashboard-view" class="view active">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">Total Revenue</div>
+          <div class="stat-value" id="stat-revenue">₹0.00</div>
+          <div style="color: var(--accent-success); font-size: 0.75rem;"><i class="fas fa-arrow-up"></i> +12.5%</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Successful Orders</div>
+          <div class="stat-value" id="stat-paid-orders">0</div>
+          <div style="color: var(--accent-success); font-size: 0.75rem;">System healthy</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Failed Orders</div>
+          <div class="stat-value" id="stat-failed-orders">0</div>
+          <div style="color: var(--accent-danger); font-size: 0.75rem;" id="failure-warning">No issues detected</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Stock Status</div>
+          <div class="stat-value" id="stat-total-products">0</div>
+          <div style="color: var(--accent-secondary); font-size: 0.75rem;" id="low-stock-alert">Monitoring levels</div>
+        </div>
+      </div>
+
+      <h2 style="margin-bottom: 1.5rem;">Recent Activity</h2>
+      <div class="stat-card" style="padding: 0; overflow: hidden;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Order ID</th>
+              <th>Status</th>
+              <th>Method</th>
+              <th>Total Amount</th>
+              <th>Timestamp</th>
+            </tr>
+          </thead>
+          <tbody id="recent-orders-body">
+            <!-- Loaded via JS -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Products View -->
+    <section id="products-view" class="view">
+      <div class="products-grid" id="products-container">
+        <!-- Loaded via JS -->
+      </div>
+    </section>
+
+    <!-- Orders View -->
+    <section id="orders-view" class="view">
+      <div class="stat-card" style="padding: 0; overflow: hidden;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Order ID</th>
+              <th>Status</th>
+              <th>Method</th>
+              <th>Total</th>
+              <th>Items</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="all-orders-body">
+            <!-- Loaded via JS -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
